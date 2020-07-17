@@ -1,3 +1,4 @@
+*.mov
 *.app
 **/submission
 .DS_Store

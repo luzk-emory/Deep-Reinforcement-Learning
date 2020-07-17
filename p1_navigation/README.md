@@ -41,3 +41,6 @@ The task is episodic, and in order to solve the environment, your agent must get
 - `model.py` contains the deep Q network for the agent.
 - `checkpoint_local.pth` contains the saved model. One can skip the training process and load this trained version to test its performance.
 
+### Watch a Game Video
+
+Watch a Youtube video on how the trained AI agent performs in a real game: https://youtu.be/Enqqr-YKaEw

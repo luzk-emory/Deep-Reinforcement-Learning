@@ -28,9 +28,9 @@ The rewards generated during the training process are plotted below:
 
 It can be seen that after 400 episodes of training, the average rewards started to converge. Actually, the average rewards between episode 401 and 500 is 13.30, exceeding the target 13.0. Hence, after about 400 episodes of training, we have solved the problem. 
 
-### Video
+### Watch a Game Video
 
-Watch Youtube video about how the AI agent performs in a real game: https://youtu.be/Enqqr-YKaEw
+Watch a Youtube video on how the trained AI agent performs in a real game: https://youtu.be/Enqqr-YKaEw
 
 ### Ideas for Future Work
 

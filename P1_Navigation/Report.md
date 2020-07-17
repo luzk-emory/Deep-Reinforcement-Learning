@@ -1,43 +1,43 @@
-[//]: # "Image References"
-
-[image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
-
-# Project 1: Navigation
+# Project 1 Report
 
 ### Introduction
 
-For this project, you will train an agent to navigate (and collect bananas!) in a large, square world.  
+In this project, I trained an agent to navigate (and collect bananas!) in a large, square world.  
 
-![Trained Agent][image1]
+A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.  
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.  
+The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around agent's forward direction. Given this information, the agent has to learn how to best select actions.
 
-The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around agent's forward direction.  Given this information, the agent has to learn how to best select actions.  Four discrete actions are available, corresponding to:
-- **`0`** - move forward.
-- **`1`** - move backward.
-- **`2`** - turn left.
-- **`3`** - turn right.
+The task is episodic, and in order to solve the environment, the agent need get an average score of +13 over 100 consecutive episodes.
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+### Learning Algorithm
 
-### Getting Started
+At the core of this program is the Q-learning algorithm,
 
-1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
-    - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
-    - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
-    - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
-    - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
-    
-    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
+$$Q\left(S_{t}, A_{t}\right) \leftarrow Q\left(S_{t}, A_{t}\right)+\alpha\left(R_{t+1}+\gamma \max _{a \in \mathcal{A}} Q\left(S_{t+1}, a\right)-Q\left(S_{t}, A_{t}\right)\right).$$
 
-    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
+Here, we uses a neural netowrk to approximate the optimal state-action value function, i.e. $Q(s,a)$. The neural network has 2 fully connected hidden layers, each of them consisting of 64 nodes, and the activation functions used are ReLu.
 
-2. Place the file in the DRLND GitHub repository, in the `p1_navigation/` folder, and unzip (or decompress) the file. 
+We also incorporate other ingredients to improve the performance of the algorithm, including 𝛆-greedy algorithm, experience replay, and others. Details can be found in the code.
 
-### Instructions
+### Plot of Rewards
 
-- Follow the instructions in the main program `Navigation.ipynb` to get started with training your own agent!  
-- `dqn_agent.py` defines the agent for this game.
-- `model.py` contains the deep Q network for the agent.
-- `checkpoint_local.pth` contains the saved model. One can skip the training process and load this trained version to test its performance.
+The rewards generated during the training process are plotted below:
+
+![rewards](pics/rewards.png)
+
+It can be seen that after 400 episodes of training, the average rewards started to converge. Actually, the average rewards between episode 401 and 500 is 13.30, exceeding the target 13.0. Hence, after about 400 episodes of training, we have solved the problem. 
+
+### Video
+
+Watch Youtube video about how the AI agent performs in a real game: https://youtu.be/Enqqr-YKaEw
+
+### Ideas for Future Work
+
+In this project, I implemented a basic version of deep Q-learning. There are multiple ways to improve the performance:
+
+1. The easiest way is to increase the number of neural network layers and the number of nodes in each layer, or fine-tune other hyper parameters within the current architecture.
+2. Double DQN
+3. Dueling DQN
+4. Prioritized Experience Replay
 

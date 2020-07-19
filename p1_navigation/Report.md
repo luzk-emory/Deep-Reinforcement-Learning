@@ -20,6 +20,24 @@ Here, we uses a neural netowrk to approximate the optimal state-action value fun
 
 We also incorporate other ingredients to improve the performance of the algorithm, including 𝛆-greedy algorithm, experience replay, and others. Details can be found in the code.
 
+#### Hyperparameters 
+
+The key hyperparameters in mine implementation are as follows:
+
+| Hyperparameter            | Value  |
+| ------------------------- | ------ |
+| Replay buffer size        | 1e5    |
+| Batch size                | 64     |
+| GAMMA (discount factor)   | 0.99   |
+| TAU                       | 1e-3   |
+| Learning rate             | 5e-4   |
+| UPDATE_EVERY              | 4      |
+| eps_start                 | 1.0    |
+| eps_end                   | 0.01   |
+| eps_decay                 | 0.995  |
+
+The python implementation and the hyperparameter configuration are based on Udacity's [dqn](https://github.com/udacity/deep-reinforcement-learning/tree/master/dqn) project.
+
 ### Plot of Rewards
 
 The rewards generated during the training process are plotted below:

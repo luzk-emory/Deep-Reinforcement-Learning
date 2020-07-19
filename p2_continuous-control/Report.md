@@ -20,7 +20,7 @@ More details can be found from [the orinial paper](https://arxiv.org/abs/1509.02
 
 The actor network has two hidden layers, where the 1st layer has 400 nodes and the 2n layer has 300 nodes. The critic network has a very sililar structure as the actor nework. The activation functions are all ReLus. 
 
-The networks used here are the same as in [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum).
+The networks used here are the same as in [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum). I did some experiments on changing the structures; however, the performances were similar.
 
 #### Hyperparameters 
 

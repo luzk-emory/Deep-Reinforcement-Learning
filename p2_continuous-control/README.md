@@ -16,6 +16,10 @@ In this environment, a double-jointed arm can move to target locations. A reward
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
+### Watch the Video
+
+Watch two Youtube videos on the arms' preformance before training https://youtu.be/DCdfgryCy7M and after training https://youtu.be/Hpm5g2yC9SU.
+
 ### Distributed Training
 
 For this project, we will provide you with two separate versions of the Unity environment:
@@ -66,8 +70,9 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent!  
 
-### Watch the trained agents
+The folder `python` contains some local packages required for runnning the program.
 
-Before training: https://youtu.be/DCdfgryCy7M
+File `model.py` provides the core deep neural network that drives the arms, and `ddpg_agent` gives the rest part on how the agent interact and learn from the environment.
 
-After training: https://youtu.be/Hpm5g2yC9SU
+Finally, `checkpoint_actor_solved.pth` and `checkpoint_critic_solved.pth` stores the the model weights of the successful agent. One can skip the training step and directly load these weights to watch how the trained agents perform.
+

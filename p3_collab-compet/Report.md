@@ -55,7 +55,7 @@ The rewards during the training process are plotted below:
 
 ![rewards](pics/rewards.png)
 
-It can be seen that after about 30 episodes of training, the score starts to converge and reach a level above 35 points. The learning speed is pretty amazing. 
+The task is solved at episode 1145. I further trained the agents for 100 more episodes, and the average reward continued to increase.
 
 ### Ideas for Future Work
 

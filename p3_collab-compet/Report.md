@@ -17,7 +17,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 The algorithim I chose for this project is the Multiple Agent Deep Deterministic Policy Gradient (MADDPG) algorithm: 
 
-![maddpg](pics/maddpg.png)
+<img src="pics/maddpg.png" alt="maddpg" style="zoom:67%;" />
 
 (This is a screen shot from [the original paper](https://arxiv.org/pdf/1706.02275.pdf))
 

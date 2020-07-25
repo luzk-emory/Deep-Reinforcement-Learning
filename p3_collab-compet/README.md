@@ -40,3 +40,5 @@ The environment is considered solved, when the average (over 100 episodes) of th
 ### Instructions
 
 Follow the instructions in `Tennis.ipynb` to get started with training your own agent!  
+
+The current jupyter notebook utilizes Udacity's online workspace.

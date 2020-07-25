@@ -21,7 +21,7 @@ The algorithim I chose for this project is the Multiple Agent Deep Deterministic
 
 (This is a screen shot from [the original paper](https://arxiv.org/pdf/1706.02275.pdf), where you can find more details.)
 
-The python implementation is based on Udacity's [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) project. I upgrade my [previous project code](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control) to handle this multiple agent game by adding a `Group` class. Here, the two agents share the same memory buffer, but have their own actors and ctirics. 
+The python implementation is based on Udacity's [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) project. To handle this multiple agent game, I introduce a `Group` class to combine agents together and share the same memory buffer; however, each agent has their own actor and ctiric. 
 
 #### Neural Network Architecture 
 
@@ -47,7 +47,7 @@ The key hyperparameters in mine benchmark implementation are as follows:
 | OUNoise sigma           | 0.2   |
 | Noise decay      | 1 (no decay) |
 
-Most of the parameters are broadly in align with [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control).
+Most of the parameters are broadly in align with [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control). Though, the original setting couldn't solve the task. I slightly adjusted some learning rates to solve the game within a reasonable number of episodes. 
 
 ### Plot of Rewards
 

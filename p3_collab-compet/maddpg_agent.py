@@ -35,8 +35,8 @@ class Group():
         for agent, state, action, reward, next_state, done in zip(self.agents, states, actions, rewards, next_states, dones):
             agent.step(state, action, reward, next_state, done, timestep)
         
-    def act(self, states, eps):
-        return [agent.act(state, eps) for agent, state in zip(self.agents, states)]
+    def act(self, states, eps, add_noise=True):
+        return [agent.act(state, eps, add_noise=True) for agent, state in zip(self.agents, states)]
     
     def checkpoint(self):
         return [{ 'actor': agent.actor_local.state_dict(),

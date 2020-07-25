@@ -65,3 +65,9 @@ The task is solved at episode 1145. I further trained the agents for 100 more ep
    - critic networks
    - both actor networks and critic networks
 3. Use Prioritized Experience Replay
+
+### Watch a Video
+
+Watch a YouTube video of two trained agents playing the game
+
+https://youtu.be/TLiR8sdFJ0I

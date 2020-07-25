@@ -25,9 +25,9 @@ The python implementation is based on Udacity's [ddpg-pendulum](https://github.c
 
 #### Neural Network Architecture 
 
-The actor network has two hidden layers, where the 1st layer has 400 nodes and the 2n layer has 300 nodes. The critic network has a very sililar structure as the actor nework. The activation functions are all ReLus. 
+The actor network has two hidden layers, where the 1st layer has 256 nodes and the 2n layer has 256 nodes. The critic network has a very sililar structure as the actor nework. The activation functions are all ReLus. 
 
-The networks used here are the same as in [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control).
+The networks structure used here are the same as in [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control); only the numbers of nodes are different.
 
 #### Hyperparameters 
 
@@ -36,15 +36,16 @@ The key hyperparameters in mine benchmark implementation are as follows:
 | Hyperparameter          | Value |
 | ----------------------- | ----- |
 | Replay buffer size      | 1e5   |
-| Batch size              | 256   |
+| Batch size              | 128   |
 | GAMMA (discount factor) | 0.99  |
-| TAU                     | 1e-3  |
+| TAU                     | 1e-2  |
 | Actor learning rate     | 1e-4  |
 | Critic learning rate    | 1e-3  |
 | L2 weight decay         | 0     |
-| Updating frequency      | 1     |
-| Updating times          | 1     |
+| Updating frequency      | 10    |
+| Updating times          | 10    |
 | OUNoise sigma           | 0.2   |
+| Noise decay      | 1 (no decay) |
 
 Most of the parameters are broadly in align with [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control).
 
@@ -58,7 +59,7 @@ It can be seen that after about 30 episodes of training, the score starts to con
 
 ### Ideas for Future Work
 
-1. The most straiforward way is to try increasing the number of neural network layers and the number of nodes in each layer, or fine-tune other hyper parameters.
+1. One straiforward way to go is to try increasing the number of neural network layers and the number of nodes in each layer, or fine-tune other hyper parameters.
 2. My current implementation is a minimum departure from singe agent DDPG, where the agents only share the memory buffer. Maybe one can try other variants of MADDPG where the agents share 
    - actor networks
    - critic networks

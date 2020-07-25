@@ -10,15 +10,15 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 BUFFER_SIZE = int(1e5)  # replay buffer size
-BATCH_SIZE = 256        # minibatch size
+BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
-TAU = 1e-3              # for soft update of target parameters
+TAU = 1e-2              # for soft update of target parameters
 LR_ACTOR = 1e-4         # learning rate of the actor 
 LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 
-LR_FREQ = 1            # learning frequency  
-UPDATE_TIME = 1        # number of updates
+LR_FREQ = 10            # learning frequency  
+UPDATE_TIME = 10        # number of updates
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -35,8 +35,8 @@ class Group():
         for agent, state, action, reward, next_state, done in zip(self.agents, states, actions, rewards, next_states, dones):
             agent.step(state, action, reward, next_state, done, timestep)
         
-    def act(self, states):
-        return [agent.act(state) for agent, state in zip(self.agents, states)]
+    def act(self, states, eps):
+        return [agent.act(state, eps) for agent, state in zip(self.agents, states)]
     
     def checkpoint(self):
         return [{ 'actor': agent.actor_local.state_dict(),
@@ -82,12 +82,12 @@ class Agent():
         self.memory.add(state, action, reward, next_state, done)
 
         # Learn, if enough samples are available in memory
-        if (len(self.memory) > BATCH_SIZE) and (timestep % LR_FREQ == 0):
+        if (len(self.memory) > BUFFER_SIZE*0.1) and (timestep % LR_FREQ == 0):
             for _ in range(UPDATE_TIME):
                 experiences = self.memory.sample()
                 self.learn(experiences, GAMMA)
 
-    def act(self, state, add_noise=True):
+    def act(self, state, eps, add_noise=True):
         """Returns actions for given state as per current policy."""
         state = torch.from_numpy(state).float().to(device)
         self.actor_local.eval()
@@ -95,7 +95,7 @@ class Agent():
             action = self.actor_local(state).cpu().data.numpy()
         self.actor_local.train()
         if add_noise:
-            action += self.noise.sample()
+            action += eps * self.noise.sample()
         return np.clip(action, -1, 1)
 
     def reset(self):
@@ -158,7 +158,7 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.1):
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.2):
         """Initialize parameters and noise process."""
         self.mu = mu * np.ones(size)
         self.theta = theta

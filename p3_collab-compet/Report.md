@@ -33,18 +33,18 @@ The networks used here are the same as in [my previous project](https://github.c
 
 The key hyperparameters in mine benchmark implementation are as follows:
 
-| Hyperparameter            | Value  |
-| ------------------------- | ------ |
-| Replay buffer size        | 1e5    |
-| Batch size                | 256    |
-| GAMMA (discount factor)   | 0.99   |
-| TAU                       | 1e-3   |
-| Actor learning rate       | 1e-4   |
-| Critic learning rate      | 1e-3   |
-| L2 weight decay           | 0      |
-| Updating frequency        | 20     |
-| Updating times            | 20     |
-| Random sampler in OUNoise | Normal |
+| Hyperparameter          | Value |
+| ----------------------- | ----- |
+| Replay buffer size      | 1e5   |
+| Batch size              | 256   |
+| GAMMA (discount factor) | 0.99  |
+| TAU                     | 1e-3  |
+| Actor learning rate     | 1e-4  |
+| Critic learning rate    | 1e-3  |
+| L2 weight decay         | 0     |
+| Updating frequency      | 1     |
+| Updating times          | 1     |
+| OUNoise sigma           | 0.2   |
 
 Most of the parameters are broadly in align with [my previous project](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control).
 

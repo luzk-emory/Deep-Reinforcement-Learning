@@ -59,13 +59,9 @@ It can be seen that after about 30 episodes of training, the score starts to con
 
 ### Ideas for Future Work
 
-1. One straiforward way to go is to try increasing the number of neural network layers and the number of nodes in each layer, or fine-tune other hyper parameters.
+1. One straiforward way to go is to try increasing the number of neural network layers and the number of nodes in each layer, or fine-tune other hyper parameters. However, this process could be quite time-consuming. 
 2. My current implementation is a minimum departure from singe agent DDPG, where the agents only share the memory buffer. Maybe one can try other variants of MADDPG where the agents share 
    - actor networks
    - critic networks
    - both actor networks and critic networks
 3. Use Prioritized Experience Replay
-
-### Watch the Video
-
-???

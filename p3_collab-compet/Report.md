@@ -21,7 +21,7 @@ The algorithim I chose for this project is the Multiple Agent Deep Deterministic
 
 (This is a screen shot from [the original paper](https://arxiv.org/pdf/1706.02275.pdf), where you can find more details.)
 
-The python implementation is based on Udacity's [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) project. I upgrade my [previous project code](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control) to handle this multiple agent game by adding a `Group` class, inspired by [NawfalTachfine](https://github.com/NawfalTachfine/DeepReinforcementLearningNanodegree/tree/master/p3.collaboration-competition/tennis). Here, the two agents share the same memory buffer, but have their own actors and ctirics. 
+The python implementation is based on Udacity's [ddpg-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) project. I upgrade my [previous project code](https://github.com/luzk-emory/Udacity-Deep-Reinforcement-Learning/tree/master/p2_continuous-control) to handle this multiple agent game by adding a `Group` class. Here, the two agents share the same memory buffer, but have their own actors and ctirics. 
 
 #### Neural Network Architecture 
 

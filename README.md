@@ -5,7 +5,7 @@
 
 # Deep Reinforcement Learning Nanodegree
 
-![drlnd](drlnd.png)
+![certificate](certificate.png)
 
 ![Trained Agents][image1]
 
